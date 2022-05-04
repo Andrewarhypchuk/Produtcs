@@ -1,0 +1,28 @@
+.modalAdd{
+    transform: scale(0);
+}
+.active {
+    width:200px;
+    height:200px;
+    border:3px solid black;
+    padding:10px;
+    margin:20px;
+    position: fixed;
+    background-color: darkslategrey;
+    top:200px;
+    left:300px;
+
+    display: flex;
+    flex-direction: column;
+    transition-duration: 0.2s;
+    transform: scale(1);
+}
+.button{
+    width:90px;
+    height:40px;
+    border-radius: 5px;
+    background-color: #282c34;
+    font-size: 20px;
+    color:whitesmoke;
+    outline: none;
+}
