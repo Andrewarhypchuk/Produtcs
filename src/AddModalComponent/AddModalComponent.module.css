@@ -1,52 +1,33 @@
-*{
-    margin:0;
-    padding:0;
-}
 .modalAdd{
     transform: scale(0);
 }
 .active {
-    width:300px;
-    height:450px;
-    border:3px solid black;
+    width:200px;
+    height:200px;
+    border:3px solid whitesmoke;
+    border-radius: 10px;
     padding:10px;
+    margin:20px;
     position: fixed;
     background-color: darkslategrey;
     top:200px;
     left:300px;
+color:white;
+    font-size: 20px;
     display: flex;
     flex-direction: column;
     transition-duration: 0.2s;
     transform: scale(1);
 }
-.editContainer{
-    width:290px;
-    height:350px;
-    display: flex;
-    flex-direction: column;
-    color:white;
-    font-size: 18px;
-}
-.text{
-    color:white;
-    font-size: 20px;
-}
 .button{
     width:90px;
     height:40px;
     border-radius: 5px;
+    margin:5px;
     background-color: #282c34;
     font-size: 20px;
     color:whitesmoke;
     outline: none;
-    margin:5px;
-}
-.input{
-    width:200px;
-    height:30px;
-    outline: none;
-    font-size: 18px;
-    border-radius: 5px;
 }
 .dflex{
     display: flex;

@@ -6,13 +6,14 @@ console.log(active)
           <div  className={active ? classes.active : classes.modalAdd  }>
               <p>Are you sure ,you want to add this?
                Product number {productId}</p>
-
+<div className={classes.dflex} >
               <button onClick={()=>{
                   setActive(false)
                   setFinalActive(true)
 
               } } className={classes.button} >Confirm </button>
               <button onClick={()=>setActive(false) } className={classes.button} > Cancel</button>
+</div>
           </div>
       )
   }

@@ -1,23 +1,35 @@
 import React, {useEffect, useState} from 'react';
 import classes from './Products.module.css';
-import ModalAdd from "./AddModalComponent";
+import ModalAdd from "../AddModalComponent/AddModalComponent";
 import FinalAdd from "../FinalAddComponent/FInalAddComponent";
+import DeleteModal from "../CorfirmDeleteModal/DeleteModalComponent";
 
 const ProductsComponent =(props)=>{
 console.log(props)
     let itemsForBasket = Object.values(props.products);
     const [basket,setBasket] = useState([]);
-    const [finalModalActive,setFinalModalActive] = useState(false);
-    useEffect(()=>{
-        console.log(basket)
-    },[basket])
-    function addToBasket (){
-        setBasket([...basket,itemsForBasket[productId-1]])
-        setFinalModalActive(false)
-    }
+    const [basketItem,setBasketItem] = useState({
+        countValue :"Your Count",
+        weightValue:"Your Weight",
+        widthValue:"Your Width",
+        heightValue :"Your Height",
+        commentValue: "Your Comment"
+    });
     const [modalActive,setModalActive] = useState(false);
 
-    const [productId,setProductId] = useState(0) ;
+    const [finalModalActive,setFinalModalActive] = useState(false);
+    const [productId,setProductId] = useState(1) ;
+    useEffect(()=>{
+        console.log(basket)
+    },[basket]);
+    useEffect(()=>{
+        console.log(basketItem);
+        addToBasket()
+    },[basketItem])
+    function addToBasket (){
+        setBasket([...basket,basketItem])
+        setFinalModalActive(false)
+    }
     let allProducts = Object.values(props.products).map((product) => {
         return <div className={classes.productStyle}>
             <p> Product ID:  {product.id}</p>
@@ -30,15 +42,27 @@ console.log(props)
                 setModalActive(true)
                 setProductId(product.id) }} className={classes.button}>Add</button>
         </div>} )
-
     return(
 <div>
-    <ModalAdd active={modalActive} setActive={setModalActive} setFinalActive={setFinalModalActive}  productId={productId} />
-    <FinalAdd active={finalModalActive} setActive={setFinalModalActive} addToBasket={addToBasket} />
            <div className={classes.container}>
                {allProducts}
            </div>
-
+    <div className={classes.basketContainer}>
+        <div>Your Products</div>
+        {basket.map((item)=>{
+            return(<div className={classes.basketItem}>
+                    <div>Count:{item.countValue}</div>
+                    <div>Weight:{item.weightValue}</div>
+                    <div>Width:{item.widthValue}</div>
+                    <div>Height:{item.heightValue}</div>
+                    <div>Comment:{item.commentValue}</div>
+                    <div>Data:{item.dataValue}</div>
+            </div>
+            )
+        })}
+    </div>
+    <ModalAdd active={modalActive} setActive={setModalActive} setFinalActive={setFinalModalActive}  productId={productId} />
+    <FinalAdd active={finalModalActive} setActive={setFinalModalActive} productId={productId} setBasketItem={setBasketItem} items={itemsForBasket} />
 </div>
     )
 }

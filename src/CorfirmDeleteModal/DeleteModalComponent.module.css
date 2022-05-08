@@ -4,14 +4,16 @@
 .active {
     width:200px;
     height:200px;
-    border:3px solid black;
+    border:3px solid whitesmoke;
+    border-radius: 10px;
     padding:10px;
     margin:20px;
     position: fixed;
     background-color: darkslategrey;
     top:200px;
     left:300px;
-
+    color:white;
+    font-size: 20px;
     display: flex;
     flex-direction: column;
     transition-duration: 0.2s;
@@ -21,8 +23,12 @@
     width:90px;
     height:40px;
     border-radius: 5px;
+    margin:5px;
     background-color: #282c34;
     font-size: 20px;
     color:whitesmoke;
     outline: none;
+}
+.dflex{
+    display: flex;
 }
